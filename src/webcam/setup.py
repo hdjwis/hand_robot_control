@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "webcam = webcam.webcam_node:main"
+            "webcam = webcam.webcam_node:main",
+            "webcam_stream = webcam.webcam_viewer_node:main"
         ],
     },
 )

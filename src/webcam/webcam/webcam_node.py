@@ -1,7 +1,6 @@
 import cv2
 import rclpy
 from rclpy.node import Node
-import time
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
