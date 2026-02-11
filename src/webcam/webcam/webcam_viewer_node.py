@@ -6,13 +6,12 @@ from sensor_msgs.msg import Image
 
 class WebCamViewerNode(Node):
     def __init__(self):
-        super.__init__("webcamviewer")
+        super().__init__("webcamviewer")
         self.subscription = self.create_subscription(Image, 'webcam_stream', self.stream_callback, 10)
         self.cv_br = CvBridge()
 
     def stream_callback(self, msg):
-        frame = msg.data
-        frame = self.cv_br.imgmsg_to_cv2(frame)
+        frame = self.cv_br.imgmsg_to_cv2(msg)
         cv2.imshow("Display window", frame)
         cv2.waitKey(0)
 
@@ -22,6 +21,8 @@ def main(args=None):
     rclpy.init(args=args)
     node = WebCamViewerNode()
     rclpy.spin(node)
+    node.cap.release()
+    cv2.destroyAllWindows()
     node.destroy_node()
     rclpy.shutdown()
 
