@@ -13,8 +13,8 @@ class WebCamViewerNode(Node):
     def stream_callback(self, msg):
         frame = self.cv_br.imgmsg_to_cv2(msg)
         cv2.imshow("Display window", frame)
-        cv2.waitKey(0)
-
+        cv2.waitKey(1)
+       
         
 
 def main(args=None):
