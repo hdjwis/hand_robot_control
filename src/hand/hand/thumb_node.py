@@ -41,7 +41,7 @@ class ThumbNode(Node):
                 x_change = result.hand_landmarks[0][1].x - result.hand_landmarks[0][4].x
                 y_change = result.hand_landmarks[0][1].y - result.hand_landmarks[0][4].y
                 angle = Float32()
-                angle.data = (180*math.atan(y_change/x_change)/math.pi) % 360
+                angle.data = (180*math.atan2(y_change, x_change)/math.pi) % 180
                 
                 self.angle_pub.publish(angle)
                 

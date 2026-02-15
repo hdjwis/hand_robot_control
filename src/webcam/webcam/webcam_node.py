@@ -11,7 +11,7 @@ class WebCamNode(Node):
         if not self.cap.isOpened():
             print("Error: Could not open camera.")
         self.webcam_publisher = self.create_publisher(Image, 'webcam_stream', 10)
-        timer_period = 0.5  
+        timer_period = 0.1
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.cv_br = CvBridge()
     
