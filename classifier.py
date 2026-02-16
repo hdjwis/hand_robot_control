@@ -1,6 +1,4 @@
-import cv2
 import numpy as np
-import os
 from fastai.vision.all import *
 from pathlib import Path
 import matplotlib.pyplot as plt 
@@ -14,3 +12,5 @@ learn = vision_learner(dls, resnet34, metrics=error_rate)
 learn.fine_tune(2)
 learn.show_results()
 plt.show()
+learn.path = Path.cwd() / 'src'
+learn.export()
